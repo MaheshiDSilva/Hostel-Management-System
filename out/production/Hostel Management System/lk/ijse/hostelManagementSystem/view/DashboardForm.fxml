@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="DashboardFormContext" prefHeight="1000.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostelManagementSystem.controller.DashboardFormController">
+   <children>
+      <AnchorPane prefHeight="115.0" prefWidth="1923.0" style="-fx-background-color: #253C59;">
+         <children>
+            <Label layoutX="53.0" layoutY="33.0" text="D24 Hostel Management System">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3349514563106796" startX="0.22815533980582525" startY="0.8883495145631068">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="WHITE" offset="0.007246376811594203" />
+                        <Stop color="#6fdfe3" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font name="Tahoma Bold" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="83.0" fitWidth="70.0" layoutX="1228.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/calender.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="97.0" fitWidth="65.0" layoutX="1577.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/clock.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblDate" layoutX="1310.0" layoutY="33.0" prefHeight="60.0" prefWidth="219.0" text="  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label fx:id="lblTime" layoutX="1653.0" layoutY="33.0" prefHeight="60.0" prefWidth="219.0" text="  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="115.0" prefHeight="885.0" prefWidth="233.0" style="-fx-background-color: #A3AFBF;">
+         <children>
+            <Button layoutX="25.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="174.0" prefWidth="179.0" style="-fx-background-color: #A3AFBF;" text="DashBoard" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="79.0" fitWidth="78.0" layoutX="72.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/dashboard.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="25.0" layoutY="193.0" mnemonicParsing="false" onAction="#btnStudentOnAction" prefHeight="174.0" prefWidth="179.0" style="-fx-background-color: #A3AFBF;" text="Student" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="115.0" fitWidth="138.0" layoutX="44.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/students.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="25.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnRoomOnAction" prefHeight="185.0" prefWidth="179.0" style="-fx-background-color: #A3AFBF;" text="Room" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="66.0" fitWidth="95.0" layoutX="74.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/rooms.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="25.0" layoutY="571.0" mnemonicParsing="false" onAction="#btnUser1OnAction" prefHeight="185.0" prefWidth="179.0" style="-fx-background-color: #A3AFBF;" text="User" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="77.0" fitWidth="70.0" layoutX="78.0" layoutY="581.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/user.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="34.0" layoutY="766.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="105.0" prefWidth="162.0" style="-fx-background-color: #A3AFBF;" />
+            <ImageView fitHeight="66.0" fitWidth="77.0" layoutX="78.0" layoutY="788.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/back1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="dashboardFormContext" layoutX="233.0" layoutY="115.0" prefHeight="885.0" prefWidth="1690.0">
+         <children>
+            <AnchorPane layoutX="121.0" layoutY="81.0" prefHeight="199.0" prefWidth="373.0" style="-fx-background-color: #F2B705;">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="105.0" layoutX="6.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../assets/key.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="122.0" layoutY="31.0" text="Booking Rooms" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblBookingRooms" layoutX="132.0" layoutY="75.0" prefHeight="49.0" prefWidth="162.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="659.0" layoutY="81.0" prefHeight="199.0" prefWidth="373.0" style="-fx-background-color: #F28C0F;">
+               <children>
+                  <Label layoutX="169.0" layoutY="31.0" text="Available Rooms" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAvailableRooms1" layoutX="179.0" layoutY="75.0" prefHeight="49.0" prefWidth="162.0" />
+                  <ImageView fitHeight="79.0" fitWidth="116.0" layoutX="21.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Available.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1190.0" layoutY="81.0" prefHeight="199.0" prefWidth="373.0" style="-fx-background-color: #BF6211;">
+               <children>
+                  <Label layoutX="169.0" layoutY="31.0" text="Total Students" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalStudents" layoutX="167.0" layoutY="82.0" prefHeight="49.0" prefWidth="162.0" />
+                  <ImageView fitHeight="130.0" fitWidth="105.0" layoutX="20.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/totalStudents.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tableView" layoutX="121.0" layoutY="339.0" prefHeight="492.0" prefWidth="1223.0" style="-fx-background-color: #F2DCC9;">
+               <columns>
+                  <TableColumn fx:id="colResId" prefWidth="230.0" text="Reservation Id" />
+                  <TableColumn fx:id="colDate" prefWidth="246.0" text="Date" />
+                  <TableColumn fx:id="colStdId" prefWidth="234.0" text="Student Id" />
+                  <TableColumn fx:id="colRoomTypeId" prefWidth="252.0" text="Room Type Id" />
+                  <TableColumn fx:id="colStatus" prefWidth="260.0" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+   <rotationAxis>
+      <Point3D x="90.0" z="1.0" />
+   </rotationAxis>
+</AnchorPane>

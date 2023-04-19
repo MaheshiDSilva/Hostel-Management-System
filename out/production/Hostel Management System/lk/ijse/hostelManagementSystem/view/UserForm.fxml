@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="UserFormContext" prefHeight="885.0" prefWidth="1690.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostelManagementSystem.controller.UserFormController">
+   <children>
+      <Label layoutX="720.0" layoutY="56.0" text="Manage User">
+         <font>
+            <Font name="Tahoma Bold" size="40.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#1610c4" />
+                  <Stop color="#15aec6" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="148.0" layoutY="163.0" text="* User Name :" textFill="#2e26c9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUserName" layoutX="319.0" layoutY="165.0" prefHeight="36.0" prefWidth="293.0" />
+      <Label layoutX="717.0" layoutY="165.0" text="* Password :" textFill="#2e26c9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtPassword" layoutX="887.0" layoutY="165.0" prefHeight="36.0" prefWidth="293.0" />
+      <Label layoutX="148.0" layoutY="240.0" text="* Name :" textFill="#2e26c9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtName" layoutX="256.0" layoutY="240.0" prefHeight="36.0" prefWidth="293.0" />
+      <Label layoutX="593.0" layoutY="240.0" text="* Contact No :" textFill="#2e26c9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtContactNo" layoutX="764.0" layoutY="240.0" prefHeight="36.0" prefWidth="270.0" />
+      <Label layoutX="1061.0" layoutY="240.0" text="* Address :" textFill="#2e26c9">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtAddress" layoutX="1194.0" layoutY="240.0" prefHeight="36.0" prefWidth="293.0" />
+      <TableView fx:id="tableView" layoutX="101.0" layoutY="358.0" prefHeight="492.0" prefWidth="1212.0" style="-fx-background-color: #F2E8DF;">
+         <columns>
+            <TableColumn fx:id="colUserName" prefWidth="234.0" text="User Name" />
+            <TableColumn fx:id="colPassword" prefWidth="245.0" text="Password" />
+            <TableColumn fx:id="colName" prefWidth="247.0" text="Name" />
+            <TableColumn fx:id="colContactNo" prefWidth="204.0" text="Contact No" />
+            <TableColumn fx:id="colAddress" prefWidth="281.0" text="Address" />
+         </columns>
+      </TableView>
+      <AnchorPane layoutX="1384.0" layoutY="298.0" prefHeight="289.0" prefWidth="183.0" style="-fx-background-color: #C7FFED; -fx-background-radius: 20;">
+         <children>
+            <JFXButton layoutX="55.0" layoutY="41.0" onAction="#btnAddOnAction" style="-fx-background-color: #F2E205; -fx-background-radius: 15;" text="Add" textFill="#111010">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="43.0" layoutY="116.0" onAction="#btnDeleteOnAction" style="-fx-background-color: #F2E205; -fx-background-radius: 15;" text="Delete" textFill="#111010">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="39.0" layoutY="197.0" onAction="#btnUpdateOnAction" style="-fx-background-color: #F2E205; -fx-background-radius: 15;" text="Update" textFill="#111010">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

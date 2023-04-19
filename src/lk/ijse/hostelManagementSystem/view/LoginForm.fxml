@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="LoginFormContext" prefHeight="1000.0" prefWidth="1923.0" style="-fx-background-color: #BEF7ED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostelManagementSystem.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="579.0" fitWidth="1319.0" layoutX="53.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Institute-Hostel-Management-System-1__2_-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="184.0" layoutY="63.0" prefHeight="127.0" prefWidth="976.0" text="D24 Hostel Management ">
+         <font>
+            <Font name="Cambria" size="90.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7378640776699029" startX="1.0" startY="0.5097087378640777">
+               <stops>
+                  <Stop color="#a830ab" />
+                  <Stop color="#14a0bc" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="514.0" layoutY="190.0" prefHeight="118.0" prefWidth="335.0" text="System">
+         <font>
+            <Font name="Cambria" size="90.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7378640776699029" startX="1.0" startY="0.5">
+               <stops>
+                  <Stop color="#a830ab" />
+                  <Stop color="#14a0bc" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <AnchorPane fx:id="loginId" layoutX="1350.0" layoutY="150.0" prefHeight="732.0" prefWidth="533.0" style="-fx-background-color: #FFFFFF;">
+         <effect>
+            <Glow level="0.07" />
+         </effect>
+         <children>
+            <Label layoutX="221.0" layoutY="54.0" text="Login" textFill="#0c6dab">
+               <font>
+                  <Font name="HP Simplified" size="36.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtUsername" layoutX="97.0" layoutY="304.0" prefHeight="50.0" prefWidth="401.0" />
+            <ImageView fitHeight="65.0" fitWidth="82.0" layoutX="36.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/userlogo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="54.0" layoutX="52.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/passwordlogo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="169.0" fitWidth="214.0" layoutX="178.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/user1.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="428.0" layoutY="387.0" mnemonicParsing="false" onAction="#btnCloseEyeOnAction" prefHeight="58.0" prefWidth="82.0" style="-fx-background-color: #FFFFFF;" />
+            <Button layoutX="448.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnOpenEyeOnAction" prefHeight="50.0" prefWidth="65.0" style="-fx-background-color: #FFFFFF;" visible="false" />
+            <JFXButton layoutX="204.0" layoutY="458.0" onAction="#btnLoginOnAction" prefHeight="50.0" prefWidth="103.0" style="-fx-background-color: #FF6B1A; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <Button layoutX="346.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnClickHereOnAction" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFFFFF;" text="Click here" textFill="#fa0087">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="84.0" layoutY="535.0" prefHeight="27.0" prefWidth="269.0" text="If you want change the password" textFill="#2340eb">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXPasswordField fx:id="txtPassword" layoutX="98.0" layoutY="387.0" prefHeight="43.0" prefWidth="401.0" />
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="455.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../assets/open_eye.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="454.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/close_eye.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
