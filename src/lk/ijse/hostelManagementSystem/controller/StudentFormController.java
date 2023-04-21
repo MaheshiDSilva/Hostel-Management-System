@@ -48,8 +48,11 @@ public class StudentFormController {
 
     private StudentBo studentBo= (StudentBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
 
-
+    String[]gender={"Male","Female"};
+    ObservableList<Object>jList= FXCollections.observableArrayList(gender);
     public void initialize(){
+        cmbGender.setItems(jList);
+
         colStdId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
         colStdName.setCellValueFactory(new PropertyValueFactory<>("student_name"));
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -60,7 +63,7 @@ public class StudentFormController {
         try {
             ObservableList<StudentDTO> list= studentBo.loadAll();
             tableView.setItems(list);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

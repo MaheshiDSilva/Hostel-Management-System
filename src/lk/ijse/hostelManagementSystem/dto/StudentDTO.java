@@ -84,14 +84,5 @@ public class StudentDTO {
                 '}';
     }
 
-    public Student toEntity() {
-        Student student=new Student();
-        student.setId(this.id);
-        student.setName(this.name);
-        student.setAddress(this.address);
-        student.setContactNo(this.contactNo);
-        student.setDob(this.dob);
-        student.setGender(this.gender);
-        return student;
-    }
+
 }

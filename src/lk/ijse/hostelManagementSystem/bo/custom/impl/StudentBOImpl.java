@@ -18,8 +18,8 @@ public class StudentBOImpl implements StudentBo {
     }
 
     @Override
-    public boolean save(StudentDTO d) throws SQLException, ClassNotFoundException {
-        return studentDAO.save(new Student(d.getId(),d.getName(),d.getAddress(),d.getContactNo(),d.getDob(),d.getGender()));
+    public boolean save(StudentDTO dto) throws SQLException, ClassNotFoundException {
+        return studentDAO.save(new Student(dto.getId(),dto.getName(),dto.getAddress(),dto.getContactNo(),dto.getDob(),dto.getGender()));
     }
 
     @Override

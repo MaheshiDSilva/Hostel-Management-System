@@ -2,6 +2,7 @@ package lk.ijse.hostelManagementSystem.controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -33,9 +34,21 @@ public class RoomFormController {
 
     private RoomBo roomBo= (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
 
-    ArrayList<String>id=new ArrayList<>();
+    String[]roomType={"RM-1324","RM-5467","RM-7896","RM-0093"};
+    ObservableList<Object>jList= FXCollections.observableArrayList(roomType);
+
+    String[]type={"Non-AC","Non-AC / Food","AC","AC / Food"};
+    ObservableList<Object>jList1= FXCollections.observableArrayList(type);
+
+    String[]keyMoney={"3100.00","6500.00","8900.00","16000.00"};
+    ObservableList<Object>jList2= FXCollections.observableArrayList(keyMoney);
+
 
     public void initialize(){
+        cmbRoomTypeId.setItems(jList);
+        cmbType.setItems(jList1);
+        cmbKeyMoney.setItems(jList2);
+
         colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("roomTypeId"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));

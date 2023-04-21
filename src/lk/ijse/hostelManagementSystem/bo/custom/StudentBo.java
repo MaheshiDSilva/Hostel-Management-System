@@ -7,8 +7,8 @@ import lk.ijse.hostelManagementSystem.dto.StudentDTO;
 import java.sql.SQLException;
 
 public interface StudentBo extends SuperBO {
-     ObservableList loadAll() throws SQLException, ClassNotFoundException;
-     boolean save(StudentDTO d) throws SQLException, ClassNotFoundException;
+     ObservableList loadAll() throws Exception;
+     boolean save(StudentDTO dto) throws SQLException, ClassNotFoundException;
      boolean delete(String id) throws SQLException, ClassNotFoundException;
      boolean update(StudentDTO dto) throws SQLException, ClassNotFoundException;
      StudentDTO search(String id) throws SQLException, ClassNotFoundException;
