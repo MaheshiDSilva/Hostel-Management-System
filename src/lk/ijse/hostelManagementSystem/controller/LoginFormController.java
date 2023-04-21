@@ -5,6 +5,8 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -14,6 +16,8 @@ public class LoginFormController {
     public JFXTextField txtUsername;
     public AnchorPane LoginFormContext;
     public AnchorPane loginId;
+    public Label lblUserName;
+    public Label lblPassword;
 
     public void btnCloseEyeOnAction(ActionEvent actionEvent) {
     }
@@ -38,5 +42,12 @@ public class LoginFormController {
 
     public void btnClickHereOnAction(ActionEvent actionEvent) throws IOException {
         setUi("/lk/ijse/hostelManagementSystem/view/ClickHereForm");
+    }
+
+    public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
+
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
     }
 }

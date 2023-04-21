@@ -5,14 +5,19 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.hostelManagementSystem.bo.BOFactory;
 import lk.ijse.hostelManagementSystem.bo.custom.RoomBo;
 import lk.ijse.hostelManagementSystem.dto.RoomDTO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RoomFormController {
     public TableView tableView;
@@ -24,8 +29,11 @@ public class RoomFormController {
     public JFXComboBox cmbType;
     public JFXComboBox cmbKeyMoney;
     public JFXTextField txtRoomsQty;
+    public Label lblQty;
 
     private RoomBo roomBo= (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOM);
+
+    ArrayList<String>id=new ArrayList<>();
 
     public void initialize(){
         colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("roomTypeId"));
@@ -33,15 +41,12 @@ public class RoomFormController {
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
         colRoomQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
 
-
         try {
             ObservableList<RoomDTO>list=  roomBo.loadAll();
             tableView.setItems(list);
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
@@ -104,5 +109,22 @@ public class RoomFormController {
 
     public void clear(){
         txtRoomsQty.clear();
+    }
+
+    public void txtRoomsQtyOnKeyReleased(KeyEvent keyEvent) {
+        if (txtRoomsQty.getText().equals("")) {
+            lblQty.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[0-9]{1,}$");
+            Matcher matcher = pattern.matcher(txtRoomsQty.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblQty.setText("Invalid !!!");
+            } else {
+                lblQty.setText("");
+            }
+        }
     }
 }

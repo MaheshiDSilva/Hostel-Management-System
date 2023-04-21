@@ -1,5 +1,6 @@
 package lk.ijse.hostelManagementSystem.util;
 
+import lk.ijse.hostelManagementSystem.entity.Reservation;
 import lk.ijse.hostelManagementSystem.entity.Room;
 import lk.ijse.hostelManagementSystem.entity.Student;
 import lk.ijse.hostelManagementSystem.entity.User;
@@ -15,12 +16,12 @@ public class SessionFactoryConfig {
 
     private SessionFactoryConfig() {
         Configuration configuration = new Configuration().mergeProperties(Utility.getProperties())
-                .addAnnotatedClass(Student.class).addAnnotatedClass(Room.class).addAnnotatedClass(User.class);
+                .addAnnotatedClass(Student.class).addAnnotatedClass(Room.class).addAnnotatedClass(User.class).addAnnotatedClass(Reservation.class);
         sessionFactory=configuration.buildSessionFactory();
     }
 
     public static SessionFactoryConfig getInstance() {
-        return (null == factoryConfiguration)
+        return (factoryConfiguration==null)
                 ? factoryConfiguration = new SessionFactoryConfig()
                 : factoryConfiguration;
     }

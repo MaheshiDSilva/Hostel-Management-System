@@ -100,6 +100,8 @@
                   <Image url="@../assets/close_eye.png" />
                </image>
             </ImageView>
+            <Label fx:id="lblUserName" layoutX="98.0" layoutY="356.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="21.0" prefWidth="253.0" textFill="#fc0000" />
+            <Label fx:id="lblPassword" layoutX="98.0" layoutY="435.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="21.0" prefWidth="253.0" textFill="#fc0000" />
          </children>
       </AnchorPane>
    </children>

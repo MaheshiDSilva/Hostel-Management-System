@@ -4,9 +4,11 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostelManagementSystem.bo.BOFactory;
 import lk.ijse.hostelManagementSystem.bo.custom.RoomBo;
@@ -15,6 +17,8 @@ import lk.ijse.hostelManagementSystem.dto.RoomDTO;
 import lk.ijse.hostelManagementSystem.dto.UserDTO;
 
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserFormController {
     public JFXTextField txtUserName;
@@ -29,6 +33,11 @@ public class UserFormController {
     public TableColumn colContactNo;
     public TableColumn colAddress;
     public AnchorPane UserFormContext;
+    public Label lblUserName;
+    public Label lblPassword;
+    public Label lblName;
+    public Label lblContactNo;
+    public Label lblAddress;
 
     private UserBo userBo= (UserBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
@@ -115,7 +124,76 @@ public class UserFormController {
         txtName.clear();
         txtContactNo.clear();
         txtAddress.clear();
+    }
 
+    public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
+        if (txtUserName.getText().equals("")) {
+            lblUserName.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{1,}$");
+            Matcher matcher = pattern.matcher(txtUserName.getText());
 
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblUserName.setText("Invalid UserName !!!");
+            } else {
+                lblUserName.setText("");
+            }
+        }
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
+        if (txtPassword.getText().equals("")) {
+            lblPassword.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[a-zA-Z0-9]{1,}$");
+            Matcher matcher = pattern.matcher(txtPassword.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblPassword.setText("Invalid Password !!!");
+            } else {
+                lblPassword.setText("");
+            }
+        }
+    }
+
+    public void txtNameOnKeyReleased(KeyEvent keyEvent) {
+        if (txtName.getText().equals("")) {
+            lblName.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[a-zA-Z]{1,}$");
+            Matcher matcher = pattern.matcher(txtName.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblName.setText("Invalid Name !!!");
+            } else {
+                lblName.setText("");
+            }
+        }
+    }
+
+    public void txtContactNoOnKeyReleased(KeyEvent keyEvent) {
+        if (txtContactNo.getText().equals("")) {
+            lblContactNo.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$");
+            Matcher matcher = pattern.matcher(txtContactNo.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblContactNo.setText("Invalid Mobile No !!!");
+            } else {
+                lblContactNo.setText("");
+            }
+        }
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
     }
 }

@@ -1,21 +1,27 @@
 package lk.ijse.hostelManagementSystem.controller;
 
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostelManagementSystem.bo.BOFactory;
 import lk.ijse.hostelManagementSystem.bo.custom.StudentBo;
 import lk.ijse.hostelManagementSystem.bo.custom.impl.StudentBOImpl;
+import lk.ijse.hostelManagementSystem.dto.RoomDTO;
 import lk.ijse.hostelManagementSystem.dto.StudentDTO;
 
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StudentFormController {
     public AnchorPane ManageStudentFormContext;
@@ -33,10 +39,16 @@ public class StudentFormController {
     public TableColumn colContactNo;
     public TableColumn colDob;
     public TableColumn colGender;
+    public Label lblId;
+    public Label lblName;
+    public Label lblAddress;
+    public Label lblContactNo;
+    public Label lblDob;
+    public JFXComboBox cmbGender;
 
-//    private StudentBo studentBo= (StudentBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
+    private StudentBo studentBo= (StudentBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
 
-    private StudentBo studentBo;
+
     public void initialize(){
         colStdId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
         colStdName.setCellValueFactory(new PropertyValueFactory<>("student_name"));
@@ -45,12 +57,12 @@ public class StudentFormController {
         colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
         colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
-
-
-            ObservableList<StudentDTO> list = FXCollections.observableArrayList();
+        try {
+            ObservableList<StudentDTO> list= studentBo.loadAll();
             tableView.setItems(list);
-
-
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
@@ -59,32 +71,26 @@ public class StudentFormController {
         String address=txtAddress.getText();
         String contactNo=txtContactNo.getText();
         String dob=txtDob.getText();
-        String gender=chbMale.getText();
-        gender=chbFemale.getText();
+        String gender= (String) cmbGender.getValue();
 
-        studentBo= StudentBOImpl.getInstance();
         try {
-            studentBo.save(new StudentDTO(id,name,address,contactNo,dob,gender));
+            boolean isAdded = studentBo.save(new StudentDTO(id,name,address,contactNo,dob,gender));
+
+            if (isAdded) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Added!").show();
+                initialize();
+                clear();
+                studentBo.loadAll();
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Something happened!").show();
+                clear();
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-//        try {
-////            boolean isAdded = studentBo.save(new StudentDTO(id,name,address,contactNo,dob,gender));
-//
-//            if (isAdded) {
-//                new Alert(Alert.AlertType.CONFIRMATION, "Student Added!").show();
-//                initialize();
-//                clear();
-//                studentBo.loadAll();
-//            } else {
-//                new Alert(Alert.AlertType.WARNING, "Something happened!").show();
-//                clear();
-//            }
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
 
     }
 
@@ -112,8 +118,8 @@ public class StudentFormController {
         String address=txtAddress.getText();
         String contactNo=txtContactNo.getText();
         String dob=txtDob.getText();
-        String gender=chbMale.getText();
-        gender=chbFemale.getText();
+        String gender= (String) cmbGender.getValue();
+
 
         try {
             if(studentBo.update(new StudentDTO(id,name,address,contactNo,dob,gender))) {
@@ -167,4 +173,74 @@ public class StudentFormController {
     }
 
 
+    public void txtStdNameOnKeyReleased(KeyEvent keyEvent) {
+        if (txtStdName.getText().equals("")) {
+            lblName.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[a-zA-Z]{1,}$");
+            Matcher matcher = pattern.matcher(txtStdName.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblName.setText("Invalid Name !!!");
+            } else {
+                lblName.setText("");
+            }
+        }
+    }
+
+    public void txtStdIdOnKeyReleased(KeyEvent keyEvent) {
+        if (txtStdId.getText().equals("")) {
+            lblId.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("(S0)([1-9]{1})([0-9]{0,})");
+            Matcher matcher = pattern.matcher(txtStdId.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblId.setText("Invalid Id !!!");
+            } else {
+                lblId.setText("");
+            }
+        }
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+    }
+
+    public void txtContactNoOnKeyReleased(KeyEvent keyEvent) {
+        if (txtContactNo.getText().equals("")) {
+            lblContactNo.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("^[0]{1}[7]{1}[01245678]{1}[0-9]{7}$");
+            Matcher matcher = pattern.matcher(txtContactNo.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblContactNo.setText("Invalid Mobile No !!!");
+            } else {
+                lblContactNo.setText("");
+            }
+        }
+    }
+
+    public void txtDobOnKeyReleased(KeyEvent keyEvent) {
+        if (txtDob.getText().equals("")) {
+            lblDob.setText("");
+        } else {
+            Pattern pattern = Pattern.compile("([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))");
+            Matcher matcher = pattern.matcher(txtDob.getText());
+
+            boolean isMatches = matcher.matches();
+
+            if (!isMatches) {
+                lblDob.setText("Invalid !!!");
+            } else {
+                lblDob.setText("");
+            }
+        }
+    }
 }

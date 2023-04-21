@@ -10,11 +10,11 @@
    <children>
       <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="730.0" prefWidth="530.0">
          <children>
-            <JFXTextField fx:id="txtUserName" layoutX="165.0" layoutY="101.0" prefHeight="31.0" prefWidth="316.0" />
-            <JFXTextField fx:id="txtName" layoutX="165.0" layoutY="276.0" prefHeight="31.0" prefWidth="316.0" />
-            <JFXTextField fx:id="txtPassword" layoutX="166.0" layoutY="187.0" prefHeight="31.0" prefWidth="316.0" />
-            <JFXTextField fx:id="txtAddress" layoutX="166.0" layoutY="455.0" prefHeight="31.0" prefWidth="316.0" />
-            <JFXTextField fx:id="txtContactNo" layoutX="165.0" layoutY="366.0" prefHeight="31.0" prefWidth="316.0" />
+            <JFXTextField fx:id="txtUserName" layoutX="165.0" layoutY="101.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="31.0" prefWidth="316.0" />
+            <JFXTextField fx:id="txtName" layoutX="165.0" layoutY="276.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="31.0" prefWidth="316.0" />
+            <JFXTextField fx:id="txtPassword" layoutX="166.0" layoutY="187.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="31.0" prefWidth="316.0" />
+            <JFXTextField fx:id="txtAddress" layoutX="166.0" layoutY="455.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="31.0" prefWidth="316.0" />
+            <JFXTextField fx:id="txtContactNo" layoutX="165.0" layoutY="366.0" onKeyReleased="#txtContactNoOnKeyReleased" prefHeight="31.0" prefWidth="316.0" />
             <Label layoutX="36.0" layoutY="102.0" text="* User Name :" textFill="#2e26c9">
                <font>
                   <Font size="20.0" />
@@ -45,6 +45,11 @@
                   <Font name="Calibri Bold" size="24.0" />
                </font>
             </JFXButton>
+            <Label fx:id="lblUserName" layoutX="166.0" layoutY="132.0" prefHeight="21.0" prefWidth="286.0" textFill="#fc0000" />
+            <Label fx:id="lblPassword" layoutX="166.0" layoutY="218.0" prefHeight="21.0" prefWidth="286.0" textFill="#fc0000" />
+            <Label fx:id="lblName" layoutX="166.0" layoutY="307.0" prefHeight="21.0" prefWidth="286.0" textFill="#fc0000" />
+            <Label fx:id="lblContactNo" layoutX="166.0" layoutY="397.0" prefHeight="21.0" prefWidth="286.0" textFill="#fc0000" />
+            <Label fx:id="lblAddress" layoutX="166.0" layoutY="486.0" prefHeight="21.0" prefWidth="286.0" textFill="#fc0000" />
          </children>
       </AnchorPane>
    </children>

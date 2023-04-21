@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -24,8 +26,8 @@ public class Student implements Serializable {
     @Column(name = "gender")
     private String gender;
 
-    @ManyToOne
-    private Room room;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "student")
+    private List<Reservation>reservationList=new ArrayList<>();
 
     public Student() {
     }
@@ -37,7 +39,16 @@ public class Student implements Serializable {
         this.contactNo = contactNo;
         this.dob = dob;
         this.gender = gender;
+    }
 
+    public Student(String id, String name, String address, String contactNo, String dob, String gender, List<Reservation> reservationList) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.contactNo = contactNo;
+        this.dob = dob;
+        this.gender = gender;
+        this.reservationList = reservationList;
     }
 
     public String getId() {
@@ -88,7 +99,13 @@ public class Student implements Serializable {
         this.gender = gender;
     }
 
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
 
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
 
     @Override
     public String toString() {
@@ -99,7 +116,8 @@ public class Student implements Serializable {
                 ", contactNo='" + contactNo + '\'' +
                 ", dob='" + dob + '\'' +
                 ", gender='" + gender + '\'' +
-
+                ", reservationList=" + reservationList +
                 '}';
     }
 }
+

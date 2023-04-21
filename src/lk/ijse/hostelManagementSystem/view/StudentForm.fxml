@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -31,7 +31,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtStdName" layoutX="664.0" layoutY="148.0" prefHeight="36.0" prefWidth="329.0">
+      <JFXTextField fx:id="txtStdName" layoutX="664.0" layoutY="148.0" onKeyReleased="#txtStdNameOnKeyReleased" prefHeight="36.0" prefWidth="329.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -40,7 +40,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtStdId" layoutX="210.0" layoutY="148.0" onAction="#txtStdIdOnAction" prefHeight="36.0" prefWidth="227.0">
+      <JFXTextField fx:id="txtStdId" layoutX="210.0" layoutY="148.0" onAction="#txtStdIdOnAction" onKeyReleased="#txtStdIdOnKeyReleased" prefHeight="36.0" prefWidth="227.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -49,7 +49,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtAddress" layoutX="1142.0" layoutY="148.0" prefHeight="36.0" prefWidth="329.0">
+      <JFXTextField fx:id="txtAddress" layoutX="1142.0" layoutY="148.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="36.0" prefWidth="329.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -58,7 +58,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtContactNo" layoutX="217.0" layoutY="223.0" prefHeight="36.0" prefWidth="238.0">
+      <JFXTextField fx:id="txtContactNo" layoutX="217.0" layoutY="223.0" onKeyReleased="#txtContactNoOnKeyReleased" prefHeight="36.0" prefWidth="238.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -67,7 +67,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtDob" layoutX="650.0" layoutY="234.0" prefHeight="36.0" prefWidth="329.0">
+      <JFXTextField fx:id="txtDob" layoutX="650.0" layoutY="234.0" onKeyReleased="#txtDobOnKeyReleased" prefHeight="36.0" prefWidth="329.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -76,16 +76,6 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXCheckBox fx:id="chbMale" layoutX="1131.0" layoutY="235.0" text="Male" textFill="#0a75ae" unCheckedColor="#070707">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXCheckBox>
-      <JFXCheckBox fx:id="chbFemale" layoutX="1253.0" layoutY="235.0" text="Female" textFill="#0a75ae" unCheckedColor="#070707">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </JFXCheckBox>
       <AnchorPane layoutX="1493.0" layoutY="174.0" prefHeight="289.0" prefWidth="183.0" style="-fx-background-color: #C7FFED; -fx-background-radius: 20;">
          <children>
             <JFXButton layoutX="55.0" layoutY="41.0" onAction="#btnAddOnAction" style="-fx-background-color: #F2E205; -fx-background-radius: 15;" text="Add" textFill="#111010">
@@ -115,5 +105,11 @@
             <TableColumn fx:id="colGender" prefWidth="185.0" text="Gender" />
         </columns>
       </TableView>
+      <Label fx:id="lblId" layoutX="210.0" layoutY="192.0" prefHeight="21.0" prefWidth="218.0" textFill="#fc0000" />
+      <Label fx:id="lblName" layoutX="664.0" layoutY="192.0" prefHeight="21.0" prefWidth="248.0" textFill="#fc0000" />
+      <Label fx:id="lblAddress" layoutX="1142.0" layoutY="192.0" prefHeight="21.0" prefWidth="248.0" textFill="#fc0000" />
+      <Label fx:id="lblContactNo" layoutX="217.0" layoutY="268.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <Label fx:id="lblDob" layoutX="650.0" layoutY="279.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <JFXComboBox fx:id="cmbGender" layoutX="1142.0" layoutY="241.0" prefHeight="31.0" prefWidth="274.0" />
    </children>
 </AnchorPane>

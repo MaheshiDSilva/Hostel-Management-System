@@ -30,7 +30,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserName" layoutX="319.0" layoutY="165.0" prefHeight="36.0" prefWidth="293.0">
+      <JFXTextField fx:id="txtUserName" layoutX="319.0" layoutY="165.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="36.0" prefWidth="293.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -39,7 +39,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtPassword" layoutX="887.0" layoutY="165.0" prefHeight="36.0" prefWidth="293.0">
+      <JFXTextField fx:id="txtPassword" layoutX="887.0" layoutY="165.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="36.0" prefWidth="293.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -48,7 +48,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtName" layoutX="256.0" layoutY="240.0" prefHeight="36.0" prefWidth="293.0">
+      <JFXTextField fx:id="txtName" layoutX="256.0" layoutY="240.0" onKeyReleased="#txtNameOnKeyReleased" prefHeight="36.0" prefWidth="293.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -57,7 +57,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtContactNo" layoutX="764.0" layoutY="240.0" prefHeight="36.0" prefWidth="270.0">
+      <JFXTextField fx:id="txtContactNo" layoutX="764.0" layoutY="240.0" onKeyReleased="#txtContactNoOnKeyReleased" prefHeight="36.0" prefWidth="270.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -66,7 +66,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtAddress" layoutX="1194.0" layoutY="240.0" prefHeight="36.0" prefWidth="293.0">
+      <JFXTextField fx:id="txtAddress" layoutX="1194.0" layoutY="240.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="36.0" prefWidth="293.0">
          <font>
             <Font size="20.0" />
          </font></JFXTextField>
@@ -79,7 +79,7 @@
             <TableColumn fx:id="colAddress" prefWidth="281.0" text="Address" />
          </columns>
       </TableView>
-      <AnchorPane layoutX="1384.0" layoutY="298.0" prefHeight="289.0" prefWidth="183.0" style="-fx-background-color: #C7FFED; -fx-background-radius: 20;">
+      <AnchorPane layoutX="1384.0" layoutY="315.0" prefHeight="289.0" prefWidth="183.0" style="-fx-background-color: #C7FFED; -fx-background-radius: 20;">
          <children>
             <JFXButton layoutX="55.0" layoutY="41.0" onAction="#btnAddOnAction" style="-fx-background-color: #F2E205; -fx-background-radius: 15;" text="Add" textFill="#111010">
                <font>
@@ -98,5 +98,10 @@
             </JFXButton>
          </children>
       </AnchorPane>
+      <Label fx:id="lblUserName" layoutX="319.0" layoutY="209.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <Label fx:id="lblPassword" layoutX="887.0" layoutY="209.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <Label fx:id="lblName" layoutX="256.0" layoutY="288.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <Label fx:id="lblContactNo" layoutX="764.0" layoutY="288.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
+      <Label fx:id="lblAddress" layoutX="1194.0" layoutY="288.0" prefHeight="21.0" prefWidth="238.0" textFill="#fc0000" />
    </children>
 </AnchorPane>
