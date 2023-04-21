@@ -19,8 +19,8 @@ public class UserBOImpl implements UserBo {
     }
 
     @Override
-    public boolean save(UserDTO d) throws SQLException, ClassNotFoundException {
-        return userDAO.save(new User(d.getUserName(),d.getPassword(),d.getName(),d.getContactNo(),d.getAddress()));
+    public boolean save(UserDTO dto) throws SQLException, ClassNotFoundException {
+        return userDAO.save(new User(dto.getUserName(),dto.getPassword(),dto.getName(),dto.getContactNo(),dto.getAddress()));
     }
 
     @Override

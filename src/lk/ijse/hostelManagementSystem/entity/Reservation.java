@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
+@Table(name = "reservation")
 public class Reservation {
     @Id
    // @GeneratedValue(strategy = GenerationType.IDENTITY)
